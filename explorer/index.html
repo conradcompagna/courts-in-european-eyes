@@ -58,6 +58,8 @@ header p { margin: 0; color: var(--ink-2); max-width: 78ch; }
 .action { font: 500 12px var(--sans); padding: 6px 10px; border: 1px solid var(--rule); border-radius: 5px; background: var(--panel); color: var(--ink); cursor: pointer; }
 .action:hover { background: var(--hover); }
 .action:disabled { opacity: .45; cursor: not-allowed; }
+.disabled-action { display: inline-flex; cursor: help; }
+.disabled-action .action { pointer-events: none; }
 .action[aria-pressed="true"], .action.primary { border-color: var(--focus); background: var(--hover); }
 .task-field { display: grid; gap: 5px; margin: 8px 0; font-size: 12px; color: var(--ink-2); }
 .task-field textarea, .task-field input { width: 100%; border: 1px solid var(--rule); border-radius: 6px; padding: 9px; background: var(--panel); color: var(--ink); font: 13px/1.5 var(--sans); }

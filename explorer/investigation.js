@@ -5,6 +5,7 @@
   const sources = Object.fromEntries(D.sources.map((s) => [s.unit, s]));
   const storageKey = "courts-neighbor-reading-v1";
   const publicSite = location.hostname === "conradcompagna.github.io";
+  const publicHint = "Saving and submitting are unavailable on the public site. Writing stays in this browser.";
   let work = { previewAnchor: "", workByAnchor: {}, studentId: "" };
   try {
     const old = JSON.parse(localStorage.getItem(storageKey) || "{}");
@@ -59,7 +60,10 @@
         <p class="task-copy">Use your six summaries to identify the pattern connecting these passages. Why might their embeddings be similar? Does the resemblance point to a recurring practice in the societies described, to shared features of the European accounts (word choice, narrative style, or translation), or to both? Support your answer with evidence from the passages.</p>
         <label class="task-field">Synthesis<textarea id="essay" placeholder="At least 500 words…">${esc(entry.essay)}</textarea></label>
         <p class="word-count" id="essayCount">${words(entry.essay)} / 500 words</p>
-        ${publicSite ? "" : `<label class="task-field">Student name or ID<input id="studentId" type="text" maxlength="80" autocomplete="name" value="${esc(work.studentId)}" required></label>
+        ${publicSite ? `<div class="task-row">
+          <span class="disabled-action" tabindex="0" title="${esc(publicHint)}"><button class="action" id="saveDraft" disabled>Save draft</button></span>
+          <span class="disabled-action" tabindex="0" title="${esc(publicHint)}"><button class="action primary" id="upload" disabled>Upload completed assignment</button></span>
+        </div>` : `<label class="task-field">Student name or ID<input id="studentId" type="text" maxlength="80" autocomplete="name" value="${esc(work.studentId)}" required></label>
         <div class="task-row">
           <button class="action" id="saveDraft">Save draft</button>
           <button class="action primary" id="upload" ${ready() ? "" : "disabled"}>Upload completed assignment</button>

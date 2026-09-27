@@ -55,7 +55,7 @@ All vectors are included, so the notebook runs offline in under a minute. It is 
 
 **Explorer and central submissions.** From `courts-in-european-eyes`, run `python server.py` and open `http://127.0.0.1:8766/explorer/`. The server creates `submissions/drafts/` and `submissions/completed/` when students save. These folders are ignored by Git. For other devices on the same trusted classroom network, run `python server.py --host 0.0.0.0` and give students `http://<instructor-computer-LAN-IP>:8766/explorer/`; keep that computer and process running during class. This lightweight server has no login, so use it only on a trusted network. Opening `explorer/index.html` as a `file://` page or publishing the static page on GitHub Pages does not provide central saving. Browser storage keeps an interim copy of writing on the student's device; the buttons send the project copy to the server. EEBO-TCP source links need internet.
 
-On the public GitHub Pages site, the student ID and submission buttons are hidden. Students can still complete the reading and writing activity; their browser retains progress on that device.
+On the public GitHub Pages site, the submission buttons are disabled and explain why on hover. Students can still complete the reading and writing activity; their browser retains progress on that device.
 
 ## Rebuilding from the sources
 
