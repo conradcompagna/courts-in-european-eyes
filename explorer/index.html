@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<title>Accounts of Asian Courts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #f4f5f6; --panel: #ffffff; --ink: #15181c; --ink-2: #4d5560; --ink-3: #7a828c;
+  --rule: #dde1e5; --rule-2: #eceef0; --hover: #eef3fa; --focus: #2a78d6;
+  --a: #2a78d6; --b: #eb6834; --base: #c9ced4; --halo: #ffffff; --mark: #fdecc8;
+  --seq-0: #e3edf9; --seq-1: #9ec5f4; --seq-2: #5598e7; --seq-3: #256abf; --seq-4: #0d366b;
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121416; --panel: #1b1e21; --ink: #eef0f2; --ink-2: #b4bbc3; --ink-3: #8a929b;
+    --rule: #30353a; --rule-2: #25292d; --hover: #1f2a38; --focus: #5a9cea;
+    --a: #3987e5; --b: #d95926; --base: #3f454c; --halo: #1b1e21; --mark: #5a4a22;
+    --seq-0: #1f2d3f; --seq-1: #184f95; --seq-2: #2a78d6; --seq-3: #6da7ec; --seq-4: #cde2fb;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121416; --panel: #1b1e21; --ink: #eef0f2; --ink-2: #b4bbc3; --ink-3: #8a929b;
+  --rule: #30353a; --rule-2: #25292d; --hover: #1f2a38; --focus: #5a9cea;
+  --a: #3987e5; --b: #d95926; --base: #3f454c; --halo: #1b1e21; --mark: #5a4a22;
+  --seq-0: #1f2d3f; --seq-1: #184f95; --seq-2: #2a78d6; --seq-3: #6da7ec; --seq-4: #cde2fb;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 var(--sans); }
+.wrap { padding-inline: 18px; padding-block: 20px 28px; max-width: 1540px; margin: 0 auto; display: grid; gap: 16px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; }
+h1 { font: 600 28px/1.1 var(--serif); margin: 0; letter-spacing: -0.01em; }
+header p { margin: 0; color: var(--ink-2); max-width: 78ch; }
+.grid { display: grid; grid-template-columns: 240px minmax(0, 1fr) 320px; gap: 12px; align-items: start; }
+.panel { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 14px; display: grid; gap: 14px; }
+.analysis { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 20px; }
+.analysis h3 { font: 600 18px/1.25 var(--serif); margin: 0; }
+.reading-list { display: grid; gap: 12px; margin-top: 18px; }
+.reading-card { border: 1px solid var(--rule); border-radius: 8px; padding: 15px; }
+.source-text { font: 16px/1.55 var(--serif); max-width: 72ch; }
+.reading-card textarea { min-height: 155px; }
+.synthesis { border-top: 1px solid var(--rule); padding-top: 20px; margin-top: 24px; }
+.synthesis textarea { min-height: 280px; }
+.word-count { font: 12px var(--mono); color: var(--ink-2); }
+.empty-state { padding: 22px; background: var(--bg); border-radius: 7px; margin-top: 12px; }
+.task-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.task-head h2 { font-size: 21px; }
+.task-copy { margin: 0 0 12px; color: var(--ink-2); }
+.task-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0; }
+.action { font: 500 12px var(--sans); padding: 6px 10px; border: 1px solid var(--rule); border-radius: 5px; background: var(--panel); color: var(--ink); cursor: pointer; }
+.action:hover { background: var(--hover); }
+.action:disabled { opacity: .45; cursor: not-allowed; }
+.action[aria-pressed="true"], .action.primary { border-color: var(--focus); background: var(--hover); }
+.task-field { display: grid; gap: 5px; margin: 8px 0; font-size: 12px; color: var(--ink-2); }
+.task-field textarea, .task-field input { width: 100%; border: 1px solid var(--rule); border-radius: 6px; padding: 9px; background: var(--panel); color: var(--ink); font: 13px/1.5 var(--sans); }
+.task-field textarea { min-height: 72px; resize: vertical; }
+.task-field input { max-width: 320px; }
+.eyebrow { font: 500 11px/1.2 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 6px; }
+label.row { display: grid; gap: 4px; font-size: 12px; color: var(--ink-2); }
+select { width: 100%; font: 13px var(--sans); padding: 6px 8px; border: 1px solid var(--rule); border-radius: 5px; background: var(--panel); color: var(--ink); }
+button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visible, canvas:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.legend { display: grid; gap: 4px; font-size: 12px; color: var(--ink-2); }
+.legend div { display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.note { font-size: 12px; color: var(--ink-2); margin: 0; }
+.stage { position: relative; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; height: min(70vh, 680px); min-height: 420px; }
+canvas { display: block; width: 100%; height: 100%; cursor: crosshair; touch-action: none; }
+.tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--rule); border-radius: 4px; padding: 5px 8px; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.12); max-width: 280px; }
+.stage-bar { position: absolute; left: 10px; bottom: 10px; display: flex; gap: 6px; z-index: 2; }
+.stage-bar button { font: 500 12px var(--sans); background: var(--panel); color: var(--ink-2); border: 1px solid var(--rule); border-radius: 4px; padding: 4px 8px; cursor: pointer; }
+#reader h2 { margin-bottom: 10px; }
+#reader > div { border-top: 1px solid var(--rule); margin-top: 16px; padding-top: 12px; }
+.meta { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 10px; font-size: 12.5px; margin: 0; }
+.meta dt { color: var(--ink-3); }
+.meta dd { margin: 0; overflow-wrap: anywhere; }
+.nn { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 5px; }
+.nn button { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 8px; width: 100%; padding: 5px; border: 0; border-radius: 5px; background: transparent; color: var(--ink); text-align: left; cursor: pointer; }
+.nn button:hover, .nn button:focus-visible { background: var(--hover); }
+.nn .sim { color: var(--ink-3); font: 11px var(--mono); }
+.nn .who { display: block; font-size: 12px; line-height: 1.3; }
+.nn .snip { display: block; color: var(--ink-2); font-size: 11px; line-height: 1.35; }
+h2 { font: 600 19px/1.25 var(--serif); margin: 0; }
+a { color: var(--focus); text-underline-offset: 2px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+.stats b { font: 500 17px/1.2 var(--mono); font-variant-numeric: tabular-nums; display: block; }
+.stats small { color: var(--ink-3); font-size: 11px; }
+@media (max-width: 1100px) { .grid { grid-template-columns: 240px minmax(0, 1fr); } .grid > aside.right { grid-column: 1 / -1; } }
+@media (max-width: 720px) { .grid { grid-template-columns: minmax(0, 1fr); } .stage { height: 60vh; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Accounts of Asian Courts</h1>
+  </header>
+  <div class="grid">
+    <aside class="panel" aria-label="Controls">
+      <label class="row" for="selA">Theme<select id="selA"></select></label>
+      <div class="legend" id="legend"></div>
+      <div>
+        <p class="eyebrow">In this cluster</p>
+        <div class="stats" id="stats"></div>
+      </div>
+    </aside>
+
+    <section class="stage" aria-label="Passage map">
+      <canvas id="cv" tabindex="0" aria-label="Map of passages. Click a dot to read it and its five nearest neighbours below."></canvas>
+      <div class="tip" id="tip" hidden></div>
+      <div class="stage-bar"><button id="reset" type="button">Reset view</button></div>
+    </section>
+
+    <aside class="panel right" aria-label="Passage metadata">
+      <div id="reader"></div>
+    </aside>
+  </div>
+  <section class="analysis" aria-label="Passage reading and interpretation">
+    <div id="taskBody"></div>
+  </section>
+</div>
+
+<script src="data.js"></script>
+<script>
+(() => {
+  const D = window.LAB_DATA, P = D.passages;
+  const src = Object.fromEntries(D.sources.map((s) => [s.unit, s]));
+  const byPid = new Map(P.map((p, i) => [p.id, i]));
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const author = (p) => src[p.u].author;
+  const clusterNames = {
+    0: "Envoy audiences",
+    1: "Royal commands and justice",
+    2: "Ceremony, banquets and gifts",
+    3: "Persian politics and provinces",
+    4: "Palaces, elephants and display",
+    5: "Dutch–Qing negotiations",
+    6: "Diplomatic letters and visits",
+    7: "Succession and conflict",
+    8: "The Chinese empire",
+    9: "Revenue, land and treasure",
+  };
+  window.COURT_CLUSTER_NAMES = clusterNames;
+  const S = { a: "0", sel: null, k: 1, tx: 0, ty: 0 };
+  const cv = document.getElementById("cv"), ctx = cv.getContext("2d"), tip = document.getElementById("tip");
+  let W = 0, H = 0, dpr = 1;
+
+  const count = (f) => { const c = {}; P.forEach((p) => { const k = f(p); c[k] = (c[k] || 0) + 1; }); return Object.entries(c).sort((a, b) => b[1] - a[1]); };
+  const clusters = count((p) => p.k).sort((a, b) => +a[0] - +b[0]).map(([k, n]) => [k, n]);
+
+  function fillSelects() {
+    const A = document.getElementById("selA");
+    A.innerHTML = clusters.map(([id]) => `<option value="${id}">${esc(clusterNames[id])}</option>`).join("");
+    A.value = S.a;
+  }
+  document.getElementById("selA").onchange = (e) => {
+    S.a = e.target.value; update();
+  };
+
+  function update() {
+    legend(); stats(); draw();
+  }
+  function legend() {
+    const L = document.getElementById("legend");
+    L.innerHTML = `<div><span class="dot" style="background:${css("--a")}"></span>${esc(clusterNames[S.a])}</div><div><span class="dot" style="background:${css("--base")}"></span>Other passages</div>`;
+  }
+  function stats() {
+    const el = document.getElementById("stats");
+    const A = P.filter((p) => String(p.k) === S.a);
+    const items = [[A.length, "passages"], [new Set(A.map((p) => p.u)).size, "accounts"]];
+    el.innerHTML = items.map(([v, l]) => `<div><b>${v}</b><small>${esc(l)}</small></div>`).join("");
+  }
+
+  function resize() { dpr = window.devicePixelRatio || 1; const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; }
+  function fit() {
+    const xs = P.map((p) => p.x), ys = P.map((p) => p.y), pad = 30;
+    const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+    S.k = Math.min((W - 2 * pad) / (x1 - x0), (H - 2 * pad - 20) / (y1 - y0));
+    S.tx = W / 2 - S.k * (x0 + x1) / 2; S.ty = H / 2 + 10 + S.k * (y0 + y1) / 2;
+  }
+  const sx = (p) => S.tx + S.k * p.x, sy = (p) => S.ty - S.k * p.y;
+  function draw() {
+    if (!W) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    const base = css("--base"), ca = css("--a"), halo = css("--halo"), ink = css("--ink");
+    const r = Math.max(2.2, Math.min(4.5, S.k * 0.06));
+    const dotAt = (p, col, rad) => { ctx.beginPath(); ctx.arc(sx(p), sy(p), rad, 0, 7); ctx.fillStyle = col; ctx.fill(); };
+    P.forEach((p) => { if (String(p.k) !== S.a) dotAt(p, base, r * 0.85); });
+    P.forEach((p) => { if (String(p.k) === S.a) { dotAt(p, ca, r); ctx.lineWidth = 0.8; ctx.strokeStyle = halo; ctx.stroke(); } });
+    const markedIds = window.courtInvestigation?.markedIds() || [];
+    ctx.lineWidth = 2; ctx.strokeStyle = css("--focus");
+    markedIds.forEach((id) => { const i = byPid.get(id); if (i === undefined) return; ctx.beginPath(); ctx.arc(sx(P[i]), sy(P[i]), r + 3, 0, 7); ctx.stroke(); });
+    if (S.sel !== null) {
+      const p = P[S.sel];
+      const nearest = p.nn.slice(0, 5);
+      ctx.lineWidth = 1.2; ctx.strokeStyle = ink; ctx.setLineDash([3, 3]);
+      nearest.forEach(([j]) => { ctx.beginPath(); ctx.moveTo(sx(p), sy(p)); ctx.lineTo(sx(P[j]), sy(P[j])); ctx.stroke(); });
+      ctx.setLineDash([]);
+      nearest.forEach(([j]) => { ctx.beginPath(); ctx.arc(sx(P[j]), sy(P[j]), r + 2, 0, 7); ctx.lineWidth = 2; ctx.strokeStyle = ink; ctx.stroke(); });
+      ctx.beginPath(); ctx.arc(sx(p), sy(p), r + 4, 0, 7); ctx.fillStyle = ink; ctx.fill();
+    }
+  }
+  function hit(x, y) {
+    let best = null, bd = 9;
+    P.forEach((p, i) => { const d = Math.hypot(sx(p) - x, sy(p) - y); if (d < bd) { bd = d; best = i; } });
+    return best;
+  }
+  function showMetadata(id) {
+    const i = byPid.get(id);
+    if (i === undefined) return;
+    const p = P[i], s = src[p.u];
+    const tcp = `https://github.com/textcreationpartnership/${s.tcp}/blob/master/${s.tcp}.xml`;
+    const el = document.getElementById("reader");
+    el.innerHTML = `<p class="eyebrow">Passage metadata · ${esc(p.id)}</p>
+      <h2>${esc(s.author)} on the ${esc(p.c)} court</h2>
+      <dl class="meta">
+        <dt>Theme</dt><dd>${esc(clusterNames[p.k])}</dd>
+        <dt>Book</dt><dd>${esc(s.vehicle)}</dd>
+        <dt>Page</dt><dd>${esc(p.p)}${p.s ? " · " + esc(p.s.length > 90 ? p.s.slice(0, 88) + "…" : p.s) : ""}</dd>
+        <dt>Observer</dt><dd>${esc(s.observer)}, ${esc(s.role)}; in Asia ${esc(s.visit)}</dd>
+        <dt>Translation</dt><dd>${s.translator ? "from " + esc(s.orig_lang) + ", " + esc(s.translator) : "English original"}</dd>
+        <dt>Text</dt><dd><a href="${tcp}" target="_blank" rel="noopener">EEBO-TCP ${esc(s.tcp)}</a></dd>
+      </dl>
+      <div><p class="eyebrow">Five nearest to this passage · cosine similarity</p>
+        <ol class="nn">${p.nn.slice(0, 5).map(([j, score]) => {
+          const q = P[j];
+          return `<li><button type="button" data-neighbour="${esc(q.id)}"><span class="sim">${score.toFixed(3)}</span><span><span class="who">${esc(author(q))} · ${esc(q.c)} · p. ${esc(q.p)}</span><span class="snip">${esc(q.t.slice(0, 95))}…</span></span></button></li>`;
+        }).join("")}</ol>
+      </div>`;
+  }
+  function selectIndex(i) {
+    S.sel = i; showMetadata(P[i].id); draw();
+    window.courtInvestigation?.preview(P[i].id);
+  }
+  function clearSelection() {
+    S.sel = null;
+    tip.hidden = true;
+    document.getElementById("reader").innerHTML = `<p class="eyebrow">Passage metadata</p><p class="note">Click a dot to view its source details and nearest passages.</p>`;
+    window.courtInvestigation?.clear();
+    draw();
+  }
+
+  let drag = null;
+  cv.addEventListener("pointerdown", (e) => { cv.setPointerCapture(e.pointerId); drag = { x: e.offsetX, y: e.offsetY, tx: S.tx, ty: S.ty, moved: false }; });
+  cv.addEventListener("pointermove", (e) => {
+    if (drag) { const dx = e.offsetX - drag.x, dy = e.offsetY - drag.y; if (Math.abs(dx) + Math.abs(dy) > 3) drag.moved = true; S.tx = drag.tx + dx; S.ty = drag.ty + dy; draw(); return; }
+    const i = hit(e.offsetX, e.offsetY);
+    if (i === null) { tip.hidden = true; return; }
+    const p = P[i]; tip.hidden = false;
+    tip.innerHTML = `<b>${esc(author(p))}</b> · ${esc(p.c)} · p. ${esc(p.p)}<br>${esc(p.t.slice(0, 120))}…`;
+    const r = cv.getBoundingClientRect();
+    tip.style.left = Math.min(e.offsetX + 14, r.width - 290) + "px"; tip.style.top = Math.min(e.offsetY + 14, r.height - 80) + "px";
+  });
+  cv.addEventListener("pointerup", (e) => { if (drag && !drag.moved) { const i = hit(e.offsetX, e.offsetY); if (i !== null) selectIndex(i); else clearSelection(); } drag = null; });
+  cv.addEventListener("pointerleave", () => (tip.hidden = true));
+  cv.addEventListener("wheel", (e) => { e.preventDefault(); const f = Math.exp(-e.deltaY * 0.0015); S.tx = e.offsetX - (e.offsetX - S.tx) * f; S.ty = e.offsetY - (e.offsetY - S.ty) * f; S.k *= f; draw(); }, { passive: false });
+  document.getElementById("reset").onclick = () => { drag = null; resize(); fit(); clearSelection(); };
+  new ResizeObserver(() => { resize(); fit(); draw(); }).observe(cv);
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { legend(); draw(); });
+  new MutationObserver(() => { legend(); draw(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  fillSelects();
+  S.sel = null;
+  document.getElementById("reader").innerHTML = `<p class="eyebrow">Passage metadata</p><p class="note">Click a dot to view its source details and nearest passages.</p>`;
+  document.getElementById("reader").addEventListener("click", (e) => {
+    const button = e.target.closest("button[data-neighbour]");
+    if (button) window.courtExplorer.selectId(button.dataset.neighbour);
+  });
+  resize(); fit(); update();
+  window.courtExplorer = {
+    selectId(id) { const i = byPid.get(id); if (i !== undefined) selectIndex(i); },
+    clearSelection,
+    setCluster(value) { if (!clusters.some(([id]) => id === String(value))) return; S.a = String(value); document.getElementById("selA").value = S.a; update(); },
+    refresh() { draw(); },
+  };
+})();
+</script>
+<script src="investigation.js"></script>

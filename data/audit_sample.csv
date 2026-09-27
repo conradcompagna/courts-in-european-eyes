@@ -1,0 +1,41 @@
+sample_no,pid,court,court_basis,about_court,court_correct,note
+1,olearius-0121,Muscovy,gazetteer,yes,yes,Muscovite audience; Tsar grants passage
+2,bernier-0008,Mughal,unit (single-court account),yes,yes,war of succession; author at court
+3,montanus-2139,Qing,unit (single-court account),no,n/a,"table orders inside the Dutch embassy household, not the Qing court"
+4,knox-0300,Kandy,unit (single-court account),partial,yes,status order; kings mentioned as source of rank
+5,dellavalle-0378,South India,gazetteer,yes,yes,Portuguese embassy to Venkatappa Nayaka
+6,coryat-0020,Mughal,unit (single-court account),partial,yes,author at the Mughal court learning languages
+7,tavernier_india-0674,Deccan,gazetteer,no,yes,diamond mines and coinage in Bijapur/Golconda
+8,knox-0190,Kandy,unit (single-court account),yes,yes,royal land tenure and service obligations
+9,tavernier_india-0192,Mughal,gazetteer,yes,yes,anecdote of the Mughal king
+10,knox-0455,Kandy,unit (single-court account),partial,yes,forms of address up to queen and king
+11,brand-0134,Qing,gazetteer,yes,yes,entry of the Russian embassy into Peking
+12,chaumont-0080,Siam,unit (single-court account),yes,yes,King Narai at an elephant hunt; gifts
+13,olearius-1542,Muscovy,gazetteer,yes,no,Safavid shah hunting with women and eunuchs; attributed to Muscovy by the gazetteer
+14,chardin-0068,Ottoman,gazetteer,yes,yes,French ambassador at the Porte
+15,nieuhof-0533,Qing,unit (single-court account),yes,yes,Qing provincial governor receives the embassy
+16,tavernier_persia-0769,Safavid,gazetteer,yes,yes,royal revenue from Shiraz
+17,nieuhof-0463,Qing,unit (single-court account),yes,yes,Mughal envoy at the Qing court (scene is Qing)
+18,dellavalle-0764,South India,gazetteer,yes,yes,key to a palace plan at Ikkeri
+19,olearius-2009,Safavid,gazetteer,yes,yes,royal slave corps (ghulams)
+20,olearius-2082,Safavid,gazetteer,yes,yes,shah's intentions toward the Holstein embassy
+21,roe-0052,Mughal,unit (single-court account),yes,yes,Roe's reverences at the durbar
+22,tavernier_seraglio-0492,Ottoman,unit (single-court account),no,n/a,Muslim rulers of Africa; not the Ottoman court
+23,bernier-0295,Mughal,unit (single-court account),yes,yes,Aurangzeb chooses a tutor for his son
+24,roe-0330,Mughal,unit (single-court account),yes,yes,quarrel with a courtier over a royal command
+25,nieuhof-1173,Qing,unit (single-court account),yes,yes,Wu Sangui and loyalty to the emperor
+26,montanus-0504,Qing,unit (single-court account),yes,yes,negotiation over the imperial presents
+27,montanus-1279,Qing,unit (single-court account),yes,yes,funeral of an imperial concubine
+28,hawkins-0003,Mughal,unit (single-court account),yes,yes,letter from James I for the Mughal king
+29,tavernier_persia-0247,Safavid,gazetteer,partial,yes,silk trade and the shah
+30,knox-0587,Kandy,unit (single-court account),yes,yes,king of Kandy controls letters of captives
+31,nieuhof-0410,Qing,unit (single-court account),yes,yes,Qing court grandees and trade
+32,chaumont-0029,Siam,unit (single-court account),yes,yes,"Phaulkon, minister of King Narai"
+33,nieuhof-1161,Qing,unit (single-court account),yes,yes,Chongzhen emperor and the rebels
+34,dellavalle-0201,Safavid,gazetteer,yes,no,Mughal palace at Ahmedabad; attributed to Safavid by the gazetteer
+35,terry-0725,Mughal,unit (single-court account),yes,yes,Mughal treasure and gifts
+36,olearius-2175,Muscovy,gazetteer,yes,no,Muscovite envoy's feast at a Safavid khan's palace; attributed to Muscovy
+37,tavernier_india-0584,Mughal,gazetteer,yes,yes,Mughal thrones and the haram door
+38,montanus-0780,Qing,unit (single-court account),partial,yes,provincial revenue to the emperor
+39,terry-0806,Mughal,unit (single-court account),yes,yes,standing in the presence of the Mogol
+40,coryat-0043,Mughal,unit (single-court account),partial,yes,Timur's tomb and a Byzantine banquet story

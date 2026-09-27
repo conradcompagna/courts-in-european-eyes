@@ -1,0 +1,42 @@
+{
+  "court__minilm__norm": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "column": "text_norm",
+    "rows": 2388,
+    "dim": 384,
+    "max_seq_length": 256,
+    "share_truncated": 0.028,
+    "median_tokens": 187,
+    "seconds": 86.3
+  },
+  "court__minilm__raw": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "column": "text",
+    "rows": 2388,
+    "dim": 384,
+    "max_seq_length": 256,
+    "share_truncated": 0.035,
+    "median_tokens": 189,
+    "seconds": 87.0
+  },
+  "court__bge__norm": {
+    "model": "BAAI/bge-base-en-v1.5",
+    "column": "text_norm",
+    "rows": 2388,
+    "dim": 768,
+    "max_seq_length": 512,
+    "share_truncated": 0.0,
+    "median_tokens": 187,
+    "seconds": 871.9
+  },
+  "court__bge__raw": {
+    "model": "BAAI/bge-base-en-v1.5",
+    "column": "text",
+    "rows": 2388,
+    "dim": 768,
+    "max_seq_length": 512,
+    "share_truncated": 0.0,
+    "median_tokens": 189,
+    "seconds": 717.1
+  }
+}
