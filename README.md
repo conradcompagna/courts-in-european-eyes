@@ -2,6 +2,8 @@
 
 A classroom lab that uses sentence embeddings to compare seventeenth-century European accounts of Asian courts, then sends students back to the texts to find out what the similarities correspond to.
 
+[Open the browser lab](https://conradcompagna.github.io/courts-in-european-eyes/explorer/)
+
 **Course:** European Imperialism in Asia, 1450–1850 (Online) · **Level:** upper-year undergraduate or MA; no programming experience needed · **Time:** 90-minute class plus written completion · **Format:** Jupyter notebook plus a browser explorer · **Corpus:** 2,388 passages about rulers and courts from 24 accounts in 16 EEBO-TCP books, printed in English 1625–1698
 
 ![Passages by court on the embedding map](assets/map_courts.png)
