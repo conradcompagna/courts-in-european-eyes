@@ -38,9 +38,9 @@ By the end of the lab students can:
 
 ## Browser investigation
 
-The explorer opens with the passage map. Its cluster selector uses provisional thematic names for the ten computed groups. Clicking any dot immediately places that passage and its five closest eligible neighbours below the map; the upper-right panel shows its source metadata and a clickable list of its five nearest neighbours. Clicking empty map space clears the selection; Reset view also restores the map's original zoom and position. Draft writing remains saved. Students summarize the main content of each of the six passages in at least 100 words, then write a synthesis of at least 500 words. Neighbours may come from different clusters; the thematic names are aids to exploration, not fixed historical categories.
+The explorer opens with the passage map. Its cluster selector uses provisional thematic names for the ten computed groups. Clicking any dot immediately places that passage and its five closest eligible neighbours below the map; the upper-right panel shows its source metadata and a clickable list of its five nearest neighbours. Clicking empty map space clears the selection; Reset view restores the original zoom and position without clearing draft writing. Neighbours may come from different clusters; the cluster names are aids to exploration, not fixed historical categories.
 
-The neighbours are ranked by cosine similarity of MiniLM embeddings made from normalised spelling; immediately adjacent passages from the same source account are excluded to avoid repetitive context. The explorer displays the original transcription for close reading. Students ask whether similar wording points to historical practices, shared European language and genre, or both. Students enter a name or ID; **Save draft** sends even partial responses to `submissions/drafts/` in this project, and **Upload completed assignment** sends work to `submissions/completed/` after six 100-word summaries and a 500-word synthesis. Each save creates a timestamped JSON file on the instructor's server. The browser checks length, not historical reasoning. The notebook remains available for fuller quantitative analysis.
+The neighbours are ranked by cosine similarity of MiniLM embeddings made from normalised spelling; immediately adjacent passages from the same source account are excluded to avoid repetitive context. The explorer displays the original transcription for close reading. Students ask whether similar wording points to historical practices, shared European language and genre, or both. Students summarize each of the six passages in at least 100 words, then write a synthesis of at least 500 words. After entering a name or ID, **Save draft** sends partial work to `submissions/drafts/`, and **Upload completed assignment** sends finished work to `submissions/completed/`. Each save creates a timestamped JSON file on the instructor's server. The browser checks length, not historical reasoning. The notebook remains available for fuller quantitative analysis.
 
 ## Run it
 
@@ -83,7 +83,6 @@ data/audit_sample.csv        instructor's audit of 40 passages
 data/embeddings/             vectors: 2 models x 2 spellings, plus probe vectors
 data/README.md               provenance, build rules, audit results, known errors
 instructor/TEACHING_GUIDE.md schedule, preparation, difficulties, discussion
-instructor/ANSWER_KEY.md     expected outputs and model answers
 scripts/                     corpus build, embedding, derived files
 ```
 
@@ -96,3 +95,5 @@ Python (lxml, pandas, scikit-learn, sentence-transformers, UMAP, matplotlib), Ju
 Texts: Early English Books Online Text Creation Partnership, Phase I, released under CC0. See [`data/README.md`](data/README.md) for every source, the rules used to build the corpus, and its measured error rate.
 
 Lab design and code: Conrad Compagna.
+
+An answer key with expected outputs and model answers is available to instructors on request: [conradcompagna@gmail.com](mailto:conradcompagna@gmail.com).
